@@ -1,0 +1,128 @@
+<!Doctype html>
+<html lang="pt-br">
+<head> 
+	 <meta charset=”UTF-8”>
+	 <title> Calculadora de churrasco</title>
+	 <script src="calculadora.js"></script>
+    
+     <style>
+         
+         * {
+         margin: 0;
+         border: 0;
+         text-indent: 0;
+         font-family: time new roman;
+         } 
+         
+        p {
+		font-size: 16pt;
+		color: black;
+        padding-top: 10px;
+        font-size: 1em;    
+	    }
+        .centro {
+		font-size: 16pt;
+		color: black;
+        padding: 7px;
+        float: left;
+        }
+         .qt {
+        font-size: 16pt;
+		color: black;
+        padding: 7px;
+        width: 55%;
+        min-width:250px;
+        float: right;
+        } 
+        input {
+		font-size: 16pt;
+		color: black;
+        padding-right:5px;
+        border:1emm;
+	    }
+        button {
+		font-size: 15pt;
+		color: black;
+        border-bottom:5px;
+        margin:10px;
+        font-size: 1em;
+        padding-bottom:5px;
+	    }
+	    h1 {
+		text-align: center;
+        font:sans-serif;    
+        padding: 10mm;
+        font-size:30pt;
+        border:0px;
+        background-color: darkorange; 
+        height: 50px;    
+	    }
+         body {
+         word-break: normal;
+         background-color: floralwhite;
+         }
+         .resultado {
+        font-size: 16pt;
+		color: black;
+        padding: 7px;
+        float: left;       
+         }
+     </style>
+</head>
+
+<body>
+<p><h1>CALCULADORA DE CHURRASCO</h1></p>
+    
+    <section>
+	 	<div class="centro">
+            <p><h2>Quantas Pessoas?</h2></p>
+            <b>Homens:</b>
+	 		<input class="num1" type="text"><br>
+            <b>Mulheres:</b>
+	 		<input class="num2" type="text"><br>
+            <b>Crianças:</b>
+	 		<input class="num3" type="text"><br>
+	 		<button onclick="clicar()">Resultado</button>
+            <p><h2> Você vai precisar de: </h2></p>
+            <p class="resultado"></p>
+	 	</div>
+	 </section>
+    
+        <script src="js/models/Negociacao.js"></script>
+        <script src="js/app.js"></script>
+    
+    <div class="qt"><p><h2>Quantidade</h2></p>
+    <p><b>Carne:</b> 500g por homem, 300g por mulher, 200g por criança.
+    <p><b>Refrigerante:</b> 500ml por pessoa.
+    <p><b>Cerveja:</b> 5 latas por adulto.</p></div>
+
+<script> 
+        
+        function clicar () {
+	
+	var num1 = document.querySelector(".num1").value;
+	var num2 = document.querySelector(".num2").value;
+    var num3 = document.querySelector(".num3").value;
+
+            
+    var somahomem = parseFloat(num1) * 0.500;
+    var somamulher = parseFloat(num2) * 0.300;
+    var somakids = parseFloat(num3) * 0.200;
+    var somap = parseFloat(num1) + parseFloat(num2) + parseFloat(num3);  
+    var somarefri = parseFloat(somap) * 0.5;
+    var somatp = parseFloat(num1) + parseFloat(num2); 
+    var somacer = parseFloat(somatp) * 7;
+    
+    var somacarne = parseFloat(somahomem) + parseFloat(somamulher) + parseFloat(somakids);
+                     
+	var resultado = parseFloat(somacarne)+ " kg de carne - " +
+                    parseFloat(somarefri) + " l de refrigerante - " +
+                    parseFloat(somacer) + " latas de cerveja";
+            
+	document.querySelector(".resultado").innerHTML = resultado;
+}
+
+    </script>
+
+</body>
+</html>
